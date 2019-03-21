@@ -8,7 +8,7 @@ export default ({addTodo}) => {
 
 	const SubmitTodo = e => {
 		e.preventDefault()
-		if(!value) return false
+		if(!value || value == " ") return false
 
 		addTodo(value)
 		setValue("")
@@ -27,9 +27,9 @@ export default ({addTodo}) => {
 						onChange={e => setValue( e.target.value )}
 						placeholder="Enter Task"
 					/>
-
-					<input type="submit" value="Add" />
-
+					<div>
+						<input type="submit" value="ADD" />
+					</div>
 				</div>
 				
 			</form>
@@ -37,7 +37,28 @@ export default ({addTodo}) => {
 
 			<style jsx>{`
 				.form-input {
-					text-align: center
+					width: 30rem;
+					margin: 2rem auto;
+				}
+				input[type='text'] {
+					width: 20rem;
+					height: 2.5rem;
+					border-radius: 0.7rem;
+					margin-bottom: 0.5rem;
+					font-size: 1rem;
+					font-weight: bold;
+				}
+
+				input[type='submit'] {
+					width: 6rem;
+					height: 2.3rem;
+					color: green;
+					font-size: 1.5rem;
+					font-weight: bold;
+					padding: 0.07rem;
+					border: none;
+					border-radius: 0.5rem;
+					cursor: pointer;
 				}
 			`}
 			</style>

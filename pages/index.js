@@ -9,16 +9,16 @@ function Todo(){
 
 	const [ todos, setTodo ] = useState([
 		{
-		  text: "Learn about React",
-		  isCompleted: false
-		},
-		{
-		  text: "Meet friend for lunch",
-		  isCompleted: false
+		  text: "Learn React and Next Js",
 		},
 		{
 		 	text: "Build really cool todo app",
-		  isCompleted: false
+		},
+		{
+			text: "Get enrolled for Enye developers program"
+		},
+		{
+		  text: "Become a fullstack developer",
 		}
 
 	])
@@ -48,13 +48,23 @@ function Todo(){
 							key={index}
 							index={index}
 							task={todo.text}
-							isCompleted= {todo.isCompleted}
 							removeTodo={removeTodo}
 						/>
 					))
 				}
 
 			</Layout>
+
+
+			<style jsx global>{`
+				body,html {
+					overflow-x: hidden;
+					background-color: #dcd9cd;
+					width: 100%;
+				}
+
+			`}
+			</style>
 
 		</div>
 
