@@ -9,8 +9,8 @@ export default ({addTodo}) => {
 	const SubmitTodo = e => {
 		e.preventDefault()
 		if(!value || value == " ") return false
-
-		addTodo(value)
+			const text = `${value.charAt(0).toUpperCase()}${value.substring(1).toLowerCase() }`
+		addTodo(text)
 		setValue("")
 	}
 

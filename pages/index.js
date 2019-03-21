@@ -9,22 +9,22 @@ function Todo(){
 
 	const [ todos, setTodo ] = useState([
 		{
-		  text: "Learn React and Next Js",
-		},
-		{
-		 	text: "Build really cool todo app",
+		  text: "Become a fullstack developer",
 		},
 		{
 			text: "Get enrolled for Enye developers program"
 		},
 		{
-		  text: "Become a fullstack developer",
+		 	text: "Build really cool todo app",
+		},
+		{
+		  text: "Learn React and Next Js",
 		}
 
 	])
 
 	const addTodo = text => {
-		const newTodo = [...todos, { text, isCompleted: false }]
+		const newTodo = [{ text }, ...todos ]
 		setTodo(newTodo)
 	}
 
@@ -41,7 +41,7 @@ function Todo(){
 			<Layout>
 				<FormInput addTodo={addTodo}/>
 				
-				{ 
+				<section>{ 
 					todos.map((todo,index) => (
 						//console.log(todo)
 						<TodoTasks
@@ -51,18 +51,26 @@ function Todo(){
 							removeTodo={removeTodo}
 						/>
 					))
-				}
+				}</section>
 
 			</Layout>
 
 
 			<style jsx global>{`
 				body,html {
-					overflow-x: hidden;
 					background-color: #dcd9cd;
-					width: 100%;
+					width: 99%;
 				}
 
+			`}
+			</style>
+
+			<style jsx>{`
+				section {
+					display: flex;
+					justify-content: flex-around;
+					flex-wrap: wrap;
+				}
 			`}
 			</style>
 

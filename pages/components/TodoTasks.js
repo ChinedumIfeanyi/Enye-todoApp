@@ -4,38 +4,35 @@ function TodoTasks({ index, task, removeTodo }) {
 
 	return (
 		<div>
-
-			<section >
-				<div className="task">
-					{task}
-					<button onClick={() => removeTodo(index) }> Delete </button>
-				</div>
-
-			</section>
+				<section >
+					
+					<div className="task">
+						{task} <br />
+						<button onClick={() => removeTodo(index) }> Delete </button>
+					</div>
+				
+				</section>
 
 			<style jsx>{`
-				
-				section {
-					width: 40rem;
-					background-color: #9ACD32;
-					border-radius: 1.5rem;
-					height: 3rem;
-					font-size: 20px;
-					padding: 0.2rem;
-					margin: 1rem auto;
 
+				section {
+					background-color: #9ACD32;
+					height: 10rem;
+					width: 20rem;
+					font-size: 25px;
+					margin: 1rem 1rem;
+					border-radius: 1rem;
 				}
 
 				.task {
-					margin: 0.5rem 2rem;
-					font-size: 25px;
-					display: flex;
-					flex-direction: space-around
+					margin: 1rem 0;
+					padding: 0.6rem;
 				}
 
 				button {
 					color: red;
-					margin-left: 3rem;
+					margin: 2rem 0;
+					postion: fixed;
 					border: none;
 					border-radius: 0.5rem;
 					height: 2rem;
