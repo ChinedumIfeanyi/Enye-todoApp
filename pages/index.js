@@ -1,27 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Layout from './components/Layout'
 
 import FormInput from './components/FormInput'
 import TodoTasks from './components/TodoTasks'
 
+import fetch from 'isomorphic-unfetch'
 
-function Todo(){
-
-	const [ todos, setTodo ] = useState([
-		{
-		  text: "Become a fullstack developer",
-		},
-		{
-			text: "Get enrolled for Enye developers program"
-		},
-		{
-		 	text: "Build really cool todo app",
-		},
-		{
-		  text: "Learn React and Next Js",
-		}
-
-	])
+function Todo({ response:{data} }){
+	// console.log(props.data)
+	const [ todos, setTodo ] = useState([])
 
 	const addTodo = text => {
 		const newTodo = [{ text }, ...todos ]
@@ -33,11 +20,15 @@ function Todo(){
 		newTodo.splice(index, 1)
 		setTodo( newTodo )
 	}
+	
+	//update the component state
+	useEffect(()=>{
+		//console.log(data)
+		setTodo(data)
+	})
 
 	return (
-
 		<div>
-
 			<Layout>
 				<FormInput addTodo={addTodo}/>
 				
@@ -77,6 +68,20 @@ function Todo(){
 		</div>
 
 	)
+}
+
+
+
+Todo.getInitialProps = async function(){
+
+	const result = await fetch('http://localhost:3000/api/todo')
+	
+	const response = await result.json()
+
+	return {
+		response
+	}	
+	
 }
 
 export default Todo
